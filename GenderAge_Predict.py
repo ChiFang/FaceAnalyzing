@@ -61,9 +61,13 @@ args = parser.parse_args()
 
 print (args)
 
+
+
 if(args.input_image == None):
     print("None input image name, use default image!!!")
     args.input_image = InputImg
+else:
+    InputImg = args.input_image
 
 print (args.input_image)
 
