@@ -6,6 +6,7 @@ import os
 import numpy as np
 #import FileDialog
 import matplotlib.pyplot as plt
+import argparse
 
 import PIL
 from PIL import Image, ImageDraw, ImageFont
@@ -43,7 +44,6 @@ gender_list = CF.LoadLabel(gender_listFile)
 mean = CF.LoadMean(mean_filename)
 
 #Loading the age network
-#age_net = caffe.Classifier(age_net_model_file, age_net_pretrained, mean=mean, channel_swap=(2,1,0),raw_scale=255,image_dims=(256, 256))
 age_net = caffe.Classifier(age_net_model_file, age_net_pretrained, channel_swap=(2,1,0),raw_scale=255,image_dims=(256, 256))
 
 #Loading the gender network
@@ -51,6 +51,22 @@ gender_net = caffe.Classifier(gender_net_model_file, gender_net_pretrained, chan
 
 
 ########## load image and start predict ##########
+
+# argparse
+parser = argparse.ArgumentParser(description="Gender and age predict.",
+                                 usage="GenderAge_Predict.py -i <input_image> ")
+parser.add_argument("-i", "--input-image", type=str, required=False, help="input image")
+
+args = parser.parse_args()
+
+print (args)
+
+if(args.input_image == None):
+    print("None input image name, use default image!!!")
+    args.input_image = InputImg
+
+print (args.input_image)
+
 print ("load image and start predict")
 input_image = caffe.io.load_image(InputImg)
 
@@ -83,5 +99,5 @@ ttFont = ImageFont.truetype('C:/windows/fonts/Arial.ttf', size=15) # in wondows
 
 draw.text((0, 0),"Gender: " + gender_list[Gender_Index],(255,0,0),font=ttFont)
 draw.text((0, 20),"Age: " + age_list[Age_Index],(255,0,0),font=ttFont)
-img.save("out11111" + ".png")
+img.save("result" + ".png")
 ########## log output ##########
