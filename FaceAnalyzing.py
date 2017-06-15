@@ -48,7 +48,7 @@ def vis_square(data, padsize=1, padval=0):
 print ("init setting for caffe stuff")
 
 # path
-InputImg = './test_img/Input_5.jpg'
+InputImg = './test_img/happy.jpg'
 model_root = './model/'
 age_listFile = 'AgeList.txt'
 gender_listFile = 'GenderList.txt'

@@ -30,7 +30,7 @@ CUDA will enable GPU-based computation in Caffe.
 ## example usage.
 
 ```
-python GenderAge_Predict.py -i <input_image>
+python FaceAnalyzing.py -i <input_image>
 ```
 
 if you do not input image name it will use default image for demo.
