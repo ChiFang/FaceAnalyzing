@@ -3,7 +3,7 @@ Face analyzing by caffe for gender and age predict
 
 I rewrite it just for fun. The network and algorithm is not SOTA anymore...
 
-The DNN on OpenCV now is incredible. This version maybe friendy for beginner of deep learning^^
+The DNN on OpenCV now is incredible. This version maybe friendly for beginner of deep learning^^
 
 ## Introduction
 
@@ -34,7 +34,7 @@ according my test, only gender predict is reliable... HaHa
 ## example usage.
 
 ```
-python FaceAnalyzing.py -i <input_image>
+python FaceAnalyzing_by_opencv.py -i <image>
 ```
 
 if you do not input image name it will use default image for demo.
